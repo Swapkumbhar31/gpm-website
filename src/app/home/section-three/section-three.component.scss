@@ -1,0 +1,85 @@
+#section-three {
+    .content {
+        color: white;
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+        min-height: 100%;
+        position: relative;
+        p {
+            margin-top: 15px
+        }
+        h1 {
+            font-family: 'GEOMA_REGULAR_DEMO';
+            margin: 15px 0;
+        }
+        img {
+            width: 40%;
+        }
+        .para {
+            .card {
+                min-height: 520px;
+                border-radius: 15px;
+                background-color: rgba($color: #ffffff, $alpha: 0.75);
+                h2 {
+                    text-align: center;
+                    margin-bottom: 18px;
+                    padding-top: 20px;
+                    font-family: 'GEOMA_REGULAR_DEMO';
+                    color: #b60033;
+                }
+                .price {
+                    font-family: 'GEOMA_REGULAR_DEMO';
+                    text-align: center;
+                    font-size: 24px !important;
+                    color: black;
+                    span {
+                        color: black;
+                        font-size: 12px;
+                    }
+                }
+                p {
+                    font-family: 'GEOMA_REGULAR_DEMO';
+                    font-size: 18px;
+                    text-align: justify;
+                    color: black;
+                }
+                div {
+                    text-align: center;
+                    button {
+                        margin: 28px 0;
+                    }
+                }
+            }
+        }
+    }
+    .content::before {
+        background-image: url('/assets/images/membership.jpg');
+        background-size: cover;
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+    }
+    .content::after {
+        background-color: rgba($color: #000000, $alpha: 0.75);
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+}
+
+@media only screen and (max-width: 600px) { 
+    .card{
+        margin: 6px;
+    }
+}

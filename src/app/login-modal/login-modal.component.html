@@ -1,0 +1,52 @@
+<div class="modal fade" id="login-modal" bsModal #modal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-events-name"
+  (onHide)="hide()" [config]="{backdrop: 'static'}">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <fieldset>
+            <legend align="center">
+              <strong>Login</strong>
+            </legend>
+            <div class="row justify-content-center sm-modal-view">
+              <div class="col-md-9 col-sm-10 alert alert-danger" *ngIf="isError && msg">
+                <div>{{msg}}</div>
+              </div>
+              <div class="col-md-9 col-sm-10 text-center">
+                <label>Email</label>
+                <input type="email" name="email" formControlName="email" class="form-control" placeholder="Enter your email">
+                <small class="float-left text-danger" *ngIf=" loginForm.controls.email.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched)">*Required
+                  field</small>
+              </div>
+              <div class="col-md-9 col-sm-10 text-center mt-2 ">
+                <label>Password</label>
+                <input type="password" name="password" formControlName="password" class="form-control" placeholder="Enter your password">
+
+                <small class="text-left d-block text-danger" *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)">*Required
+                  field</small>
+                <div class="row mt-1">
+                  <small class="col-6 text-muted text-left">*Password is case sensitive</small>
+                  <div class="col-6 text-right">
+                    <a class="text-danger danger-fontfamily" href="javascript:void(0)" routerLink="/forgot-password"
+                      (click)="modal.hide()">Forgot Password?</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-9 text-center mt-5">
+                <button class="btn btn-danger text-uppercase">Log in</button>
+              </div>
+              <div class="col-9 text-center m-3">
+                <span class="para">Don't have an account?
+                  <a class="text-danger danger-fontfamily" (click)="modal.hide()" routerLink="/register">Register Now</a>
+                </span>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

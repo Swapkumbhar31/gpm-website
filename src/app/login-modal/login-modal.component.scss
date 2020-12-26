@@ -1,0 +1,42 @@
+#login-modal {
+    label {
+        font-family: "ARLRDBD";
+    }
+    input {
+        border-radius: 10px;
+    }
+    .para {
+        color: #848484;
+    }
+    .danger-fontfamily {
+        font-size: 14px;
+        cursor: pointer;
+        font-family: "ARLRDBD";
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.modal .modal-dialog {
+    min-width: 45% !important;
+    margin: auto;
+}
+
+.modal-content {
+    background: #e0e0e0;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .modal-dialog {
+        margin-left: 4% !important;
+        margin-top: 20% !important;
+    }
+    .modal-content {
+        width: 95% !important;
+    }
+    .sm-modal-view {
+        padding: 10px;
+    }
+}

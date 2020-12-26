@@ -1,0 +1,30 @@
+#about-us-pg2 {
+  background-image: url('/assets/images/Man_Opacity_light.png');
+  background-position: bottom right;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  .content {}
+
+  .question {
+    color: #b60033;
+    font-family: "ANTIPASTOPRO_DEMIBOLD_TRIAL";
+  }
+
+  .success-title {
+    color: #242fbe;
+  }
+
+  p {
+    font-size: 18px;
+    font-family: "ANTIPASTOPRO_DEMIBOLD_TRIAL";
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #about-us-pg2 {
+    h2 {
+      font-size: 1.4rem;
+    }
+  }
+}

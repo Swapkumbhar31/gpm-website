@@ -1,0 +1,98 @@
+#membership-core {
+    div.callout{
+        border: 0px;
+    }
+    .callout.right::before {
+        left: -22.5px;
+        top: 45%;
+        border-right: 10px solid rgba($color: #ffffff, $alpha: 0.75);
+    }
+    .card {
+        border-radius: 15px;
+        background-color: rgba($color: #ffffff, $alpha: 0.75);
+    }
+    .core {
+        .core-card {
+            border-radius: 15px;
+            width: 100%;
+            background: #b60033;
+        }
+        h2 {
+            font-family: "GEOMA_REGULAR_DEMO" !important;
+            color: white;
+            text-decoration: underline;
+        }
+        h3 {
+            font-family: "GEOMA_REGULAR_DEMO";
+            color: #b60033;
+        }
+        .gst {
+            font-size: 12px;
+        }
+        .features {
+            .feature {
+                display: block;
+                margin: 19px;
+                font-family: "GEOMA_REGULAR_DEMO";
+                .fa {
+                    color: #000000;
+                    border: 1px solid #000000;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+    .mebership-content {
+        h2 {
+            color: #b60033;
+            font-family: "ARLRDBD";
+        }
+        p {
+            font-size: 16px !important;
+            font-family: "ARLRDBD";
+        }
+    }
+}
+
+.content::before {
+    background-image: url('/assets/images/core.jpg');
+    background-position: center;
+    background-size: cover;
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.content::after {
+    background-color: rgba($color: #000000, $alpha: 0.75);
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+@media only screen and (max-width: 600px) {
+    .callout.right::before {
+        display: none;
+    }
+    .mebership-content{
+        p {
+            text-align: justify;
+        }
+        h2{
+            text-align: justify;
+            font-size: 24px;
+        }
+    }
+    .btn {
+        padding: .3rem 1rem;
+    }
+}

@@ -1,0 +1,54 @@
+<div id="login" class="h-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <p class="text-center mb-5">Thank you for joining GPM Community. To activate your account, please enter the
+        credentials sent on your
+        registered
+        email ID.
+        <br>(Note - Please check your spam folder if you didn't recieve the mail in your inbox)</p>
+      <div class="col-lg-6 col-12 bg-gray p-2">
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <fieldset>
+            <legend align="center">
+              <strong>Login</strong>
+            </legend>
+            <div class="row justify-content-center sm-modal-view">
+              <div class="col-lg-9 col-sm-10 col-10 alert alert-danger" *ngIf="isError && msg">
+                <div>{{msg}}</div>
+              </div>
+              <div class="col-md-9 col-sm-10 text-center">
+                <label>Email</label>
+                <input type="email" name="email" formControlName="email" class="form-control" placeholder="Enter your email">
+                <small class="float-left text-danger" *ngIf=" loginForm.controls.email.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched)">*Required
+                  field</small>
+              </div>
+              <div class="col-md-9 col-sm-10 text-center mt-2 ">
+                <label>Password</label>
+                <input type="password" name="password" formControlName="password" class="form-control" placeholder="Enter your password">
+
+                <small class="text-left d-block text-danger" *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)">*Required
+                  field</small>
+                <div class="row mt-1">
+                  <small class="col-6 text-muted text-left">*Password is case sensitive</small>
+                  <div class="col-6 text-right">
+                    <a class="text-danger danger-fontfamily" href="javascript:void(0)" routerLink="/forgot-password">Forgot
+                      Password?</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-9 text-center mt-5">
+                <button class="btn btn-danger text-uppercase">Log in</button>
+              </div>
+              <div class="col-9 text-center m-3">
+                <span class="para">Don't have an account?
+                  <a class="text-danger danger-fontfamily" routerLink="/register">Register Now</a>
+                </span>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

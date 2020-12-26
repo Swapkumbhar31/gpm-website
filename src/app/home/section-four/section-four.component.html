@@ -1,0 +1,63 @@
+<div id="section-four">
+  <div class="content container p-3">
+    <span class="text-center d-block text-muted text-capitalize mt-3">Get In Touch</span>
+    <h1 class="text-center">Contact Us Now!</h1>
+    <div class="text-center">
+      <img src="assets/icons/general-icon/LINEIMG.png" class="img-fluid  mb-4 sm-img">
+    </div>
+    <div class="para">
+      <div class="row justify-content-center">
+        <div class="col-md-7 col-sm-12">
+          <div class="container">
+            <form [formGroup]="contactUsForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class=" col-12 alert alert-danger" *ngIf="isError">
+                  <div>{{isError}}</div>
+                </div>
+                <div class="col-12 alert alert-success" *ngIf="isSuccess">
+                  <div>{{isSuccess}}</div>
+                </div>
+                <div class="col-md-6 col-sm-10 form-group">
+                  <input type="text" formControlName="name" class="form-control" placeholder="Name" id="user">
+                  <small *ngIf="contactUsForm.controls.name.invalid && (contactUsForm.controls.name.dirty || contactUsForm.controls.name.touched)">*Required
+                    field
+                  </small>
+                </div>
+                <div class="col-md-6 col-sm-10 form-group">
+                  <input type="email" type="email" formControlName="email" class="form-control" placeholder="Email" id="email">
+                  <small *ngIf="contactUsForm.controls.email.invalid && (contactUsForm.controls.email.dirty || contactUsForm.controls.email.touched)">*Required
+                    field
+                  </small>
+                </div>
+                <div class="col-md-12 col-sm-10  form-group">
+                  <textarea formControlName="message" class="form-control" placeholder="Message" rows="5" id="comment"></textarea>
+                  <small *ngIf="contactUsForm.controls.message.invalid && (contactUsForm.controls.message.dirty || contactUsForm.controls.message.touched)">*Required
+                    field
+                  </small>
+                </div>
+                <div class="col-12 text-center">
+                  <button class="btn btn-warning btn-lg text-uppercase mt-3 mb-3">Send Message</button>
+                </div>
+
+              </div>
+              <div class="row mt-3">
+                <div class="col-6">
+                  <a href="https://www.facebook.com/gainpassivemoney" target="_blank">
+                    <div id="fb-icon" class="float-right">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-6 linkdin">
+                  <a href="https://www.linkedin.com/company/gain-passive-money" target="_blank">
+                    <div id="linkdin-icon">
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

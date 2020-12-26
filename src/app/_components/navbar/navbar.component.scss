@@ -1,0 +1,131 @@
+.bg-white {
+    background: white !important;
+}
+
+.navbar {
+    z-index: 1046;
+    font-family: "ARLRDBD";
+    li {
+        position: relative;
+        &::after {
+            content: '';
+            height: 50%;
+            width: 2px;
+            position: absolute;
+            right: 0;
+            top: calc(50% - 12px);
+            background-color: #000000;
+        }
+        &.no-dash {
+            &::after {
+                width: 0px;
+            }
+        }
+        a {
+            margin: 0 10px;
+            border-radius: 10px;
+            color: black;
+            &:hover {
+                transition-duration: 0.5s;
+                background-color: #b60033;
+                color: #fff;
+            }
+            &.active {
+                background-color: #b60033;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.full-page-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 20;
+    color: #fff;
+    transition-duration: 0.5s;
+    display: none;
+    z-index: 1040;
+    .menu-backdrop {
+        float: right;
+        height: 100vh;
+        width: 0%;
+        transition-duration: 0.5s;
+        background-color: rgba(0, 0, 0, 0.8);
+        .close-btn {
+            padding: 30px;
+            cursor: pointer;
+        }
+    }
+    .active {
+        width: 30%;
+    }
+    .menu {
+        list-style: none;
+        li {
+            padding: 10px;
+        }
+        li>a {
+            text-decoration: none;
+        }
+    }
+}
+
+.menu-link {
+    color: white !important;
+}
+
+.nav-sm {
+    float: right;
+}
+
+.logged-sm {
+    color: #333;
+    font-size: 18px;
+}
+
+.menu-sm-icon {
+    padding-top: 4px;
+    padding-left: 25px;
+}
+
+.menu-sm {
+    float: right;
+    padding: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+    .full-page-menu {
+        .active {
+            width: 100% !important;
+        }
+    }
+    .row {
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+    }
+    li a {
+        color: white;
+        &:hover {
+            color: rgba($color: #ffffff, $alpha: 0.5);
+        }
+    }
+    .sm-navbar{
+        z-index: 100;
+    }
+}
+
+.sm-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1046;
+    img{
+        height: 30px;
+    }
+}

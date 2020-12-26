@@ -1,0 +1,431 @@
+<div class="hidden-lg">
+  <div id="wrap">
+    <div id="one">
+    </div>
+    <div id="two">
+    </div>
+  </div>
+  <div id="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3 text-light">
+          <div class="referal-code text-center mt-5">
+            <p class="mb-4">
+              <span class="d-block">UserID: @GPM{{user?.id}}</span>
+              <span class="d-block">Pancard: {{user?.pancard}}</span>
+            </p>
+            <div *ngIf="user?.membership === 'core' && +user?.id !== 1">
+              <button class="btn btn-success mb-2 w-75 p-2"
+                style="border-radius: 10px; box-shadow: none"
+                (click)="openModalBs(referralCodeModal)">{{user?.referral_code}}</button>
+              <h4>Your Referral Code</h4>
+              <span class="text-muted">Refer this code to your friends to get 25% of joining amount as referral bonus!</span>
+            </div>
+          </div>
+          <div class="action-buttons m-4">
+            <div class="container-fluid">
+              <div class="row mt-1">
+                <div class="col-12 text-center mt-4">
+                  <button class="btn btn-success w-100"
+                    routerLink="/profile/activities">Activities</button>
+                </div>
+                <div class="col-12 text-center mt-4"
+                  *ngIf="user?.membership === 'core'">
+                  <button class="btn btn-success w-100"
+                    (click)="openModalBs(editbankdetails)">Edit Bank Details</button>
+                </div>
+                <div class="col-12 text-center mt-4">
+                  <button class="btn btn-success w-100"
+                    (click)='openModalBs(contactInfoModal)'>Edit Personal Info</button>
+                </div>
+                <div class="col-12 text-center mt-4">
+                  <button class="btn btn-success w-100"
+                    (click)="openModalBs(changepasswordmodal)">Change password</button>
+                </div>
+                <div class="col-12 text-center mt-4"
+                  *ngIf="user?.membership === 'basic'">
+                  <a class="btn btn-success w-100"
+                    href='https://www.payumoney.com/paybypayumoney/#/91D48EAAE578CFB5281E809132B49844'>Upgrade Membership</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="d-flex flex-row">
+            <div class=" profile-image mt-3">
+              <input type="file"
+                id="profilefile"
+                #fileInput
+                style="display:none"
+                (change)="fileChangeEvent($event)"
+                class="custom-file-input" />
+              <img [src]="imageUrl"
+                alt=""
+                class="img-fluid image"
+                (click)="saveProfile(imagecropper)">
+              <img *ngIf="user?.membership === 'core'"
+                src="../../assets/icons/general-icon/crown.svg"
+                class="core-member"
+                tooltip="You are a core member">
+            </div>
+            <div class="values mt-3 ml-3">
+              <h1>{{user?.name}}</h1>
+              <div class="d-flex mb-1 align-items-center">
+                <div class="image-icons">
+                  <img src="../../assets/icons/general-icon/cake.svg"
+                    class="icons">
+                </div>
+                <span class="value">
+                  {{user?.dob | amDateFormat:'DD/MM/YYYY'}}
+                </span>
+              </div>
+              <div class="d-flex mb-1 align-items-center">
+                <div class="image-icons">
+                  <img src="../../assets/icons/general-icon/mail.svg"
+                    class="icons">
+                  <img *ngIf="user?.isVarified === '1'"
+                    src="../../assets/icons/general-icon/varified_mark.svg"
+                    class="verified">
+                </div>
+                <span class="value">
+                  {{user?.email}}
+                </span>
+              </div>
+              <div class="d-flex mb-1 align-items-center">
+                <div class="image-icons">
+                  <img src="../../assets/icons/general-icon/phone.svg"
+                    class="icons">
+                </div>
+                <span class="value">
+                  {{user?.contact}}
+                </span>
+              </div>
+              <div class="d-flex mb-1 align-items-center">
+                <div class="image-icons">
+                  <img src="../../assets/icons/general-icon/location.svg"
+                    class="icons">
+                </div>
+                <span class="value">
+                  {{user?.city}}, {{user?.state}}.
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-row mt-3">
+            <div *ngIf="progress">
+              <div class="col-lg-12">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-6"
+                      *ngFor="let p of progress; index as i">
+                      <div class="progress-row">
+                        <h5>Arena {{i+1}}: <a href="https://fliteracy.gainpassivemoney.com/chapter/{{p?.module_name.toLowerCase().replace(' ', '-')}}">{{p?.module_name}}</a></h5>
+                        <progress max="{{p?.chap_count}}"
+                          value="{{user?.isModuleCompleted === '0' ? p?.completed : p?.chap_count}}"></progress>
+                        <div class="d-inline">
+                          <img src="/assets/icons/general-icon/{{ user?.isModuleCompleted === '0' ? p?.state : 'finished'}}.svg"
+                            alt=""
+                            height="20px"
+                            width="20px">
+                          <small *ngIf="p?.state === 'finished' || user?.isModuleCompleted === '1'"
+                            class="text-muted">You've successfully passed this arena.</small>
+                          <a href="https://fliteracy.gainpassivemoney.com"
+                            target="_blank">
+                            <small *ngIf="p?.state === 'ongoing' && user?.isModuleCompleted === '0'"
+                              class="text-primary">
+                              <span *ngIf="user.chapter_id !== 1">Resume Arena</span>
+                              <span *ngIf="user.chapter_id === 1">Start your journey</span>
+                            </small></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 text-center">
+                      <div class="magenda-card"
+                        *ngIf="user?.membership === 'core' && +user?.id !== 1">
+                        <span class="d-block count">{{profile?.invites}}</span>
+                        <span>People Reffered by You</span>
+                      </div>
+                      <div class="magenda-card"
+                        style="opacity: 0.5"
+                        *ngIf="user?.membership === 'core' && +user?.id === 1">
+                        <span class="d-block count">0</span>
+                        <span>People Reffered by You</span>
+                      </div>
+                      <div class="magenda-card"
+                        tooltip="Please upgrade your membership to unlock this feature."
+                        style="opacity: 0.5"
+                        *ngIf="user?.membership === 'basic'">
+                        <span class="d-block count">0</span>
+                        <span>People Reffered by You</span>
+                      </div>
+                    </div>
+                    <div class="col-6 text-center">
+                      <div class="magenda-card"
+                        *ngIf="user?.membership === 'core'">
+                        <span class="d-block count">&#x20b9; {{profile?.earning}}/-</span>
+                        <span>Your Total Earnings</span>
+                      </div>
+                      <div class="magenda-card"
+                        tooltip="Please upgrade your membership to unlock this feature."
+                        style="opacity: 0.5"
+                        *ngIf="user?.membership === 'basic'">
+                        <span class="d-block count">&#x20b9; 0</span>
+                        <span>Your Total Earnings</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="visible-sm">
+  <div class="profile-sm">
+    <div class="profile-banner">
+      <div class="overlay gradient"></div>
+      <img class="img-fluid"
+        src="assets/images/maxresdefault.jpg">
+    </div>
+    <div class="container">
+      <div class="row info-conatiner">
+        <div class="col-4 profile-section">
+          <div class="profile-image">
+            <img [src]="imageUrl"
+              alt=""
+              class="img-fluid image"
+              (click)="saveProfile(imagecropper)">
+            <img src="../../assets/icons/general-icon/crown.svg"
+              *ngIf="user?.membership === 'core'"
+              class="core-member"
+              tooltip="You are a core member">
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="info">
+            <div class="values">
+              <h4>
+                {{user?.name}}</h4>
+              <div class="d-flex mb-1 align-items-center">
+                <div class="image-icons">
+                  <img src="../../assets/icons/general-icon/cake.svg"
+                    class="icons">
+                </div>
+                <span class="value">
+                  {{user?.dob | amDateFormat:'DD/MM/YYYY'}}
+                </span>
+              </div>
+              <div class="d-flex mb-1 align-items-center">
+                <div class="image-icons">
+                  <img src="../../assets/icons/general-icon/mail.svg"
+                    class="icons">
+                  <img *ngIf="user?.isVarified === '1'"
+                    src="../../assets/icons/general-icon/varified_mark.svg"
+                    class="verified">
+                </div>
+                <span class="value">
+                  {{user?.email}}
+                </span>
+              </div>
+              <div class="d-flex mb-1 align-items-center">
+                <div class="image-icons">
+                  <img src="../../assets/icons/general-icon/phone.svg"
+                    class="icons">
+                </div>
+                <span class="value number">
+                  {{user?.contact}}
+                </span>
+              </div>
+              <div class="d-flex mb-1 align-items-center">
+                <div class="image-icons">
+                  <img src="../../assets/icons/general-icon/location.svg"
+                    class="icons">
+                </div>
+                <span class="value">
+                  {{user?.city}}, {{user?.state}}.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-end mt-5"
+        *ngIf="progress">
+        <div class="col-lg-9">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12"
+                *ngFor="let p of progress; index as i">
+                <div class="progress-row">
+                  <h5>Arena {{i+1}}: <a href="https://fliteracy.gainpassivemoney.com/chapter/{{p?.module_name.toLowerCase().replace(' ', '-')}}">{{p?.module_name}}</a></h5>
+                  <progress max="{{p?.chap_count}}"
+                    value="{{user?.isModuleCompleted === '0' ? p?.completed : p?.chap_count}}"></progress>
+                  <div class="d-inline">
+                    <img [src]="'/assets/icons/general-icon/'+p?.state + '.svg'"
+                      alt=""
+                      height="20px"
+                      width="20px">
+                    <small *ngIf="p?.state === 'finished' || user?.isModuleCompleted === '1'"
+                      class="text-muted">You've successfully passed this arena.</small>
+                    <a href="https://fliteracy.gainpassivemoney.com"
+                      target="_blank"><small *ngIf="p?.state === 'ongoing' && user?.isModuleCompleted === '0'"
+                        class="text-muted">Resume Arena</small></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 referal-code text-center">
+                <p class="mb-4">
+                  <span class="d-block">UserID: @GPM{{user?.id}}</span>
+                  <span class="d-block">Pancard: {{user?.pancard}}</span>
+                </p>
+                <div *ngIf="user?.membership === 'core'">
+                  <button class="btn btn-success mb-2"
+                    (click)="openModalBs(referralCodeModal)">{{user?.referral_code}}</button>
+                  <h3>Your Referral Code</h3>
+                  <span>Refer this code to your friends to get 25% of joining amount as referral bonus!</span>
+                </div>
+              </div>
+              <div class="col-12 text-center m-2">
+                <div class="magenda-card"
+                  *ngIf="user?.membership === 'core'">
+                  <span class="d-block count">{{profile.invites}}</span>
+                  <span>People Referred by You</span>
+                </div>
+                <div class="magenda-card"
+                  tooltip="Please upgrade your membership to unlock this feature."
+                  style="opacity: 0.5"
+                  *ngIf="user?.membership === 'basic'">
+                  <span class="d-block count">0</span>
+                  <span>People Referred by You</span>
+                </div>
+              </div>
+              <div class="col-12 text-center m-2">
+                <div class="magenda-card"
+                  *ngIf="user?.membership === 'core'">
+                  <span class="d-block count">&#x20b9; {{profile.earning}}/-</span>
+                  <span>Your Total Earnings</span>
+                </div>
+                <div class="magenda-card"
+                  tooltip="Please upgrade your membership to unlock this feature."
+                  style="opacity: 0.5"
+                  *ngIf="user?.membership === 'basic'">
+                  <span class="d-block count">&#x20b9; 0</span>
+                  <span>Your Total Earnings</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="action-buttons">
+        <div class="container-fluid">
+          <div class="row mt-3">
+            <div class="col-12 mb-3 text-center">
+              <button class="btn btn-success"
+                routerLink="/profile/activities">Activities</button>
+            </div>
+            <div class="col-12 mb-3 text-center"
+              *ngIf="user?.membership === 'core'">
+              <button class="btn btn-success"
+                (click)="openModalBs(editbankdetails)"
+                *ngIf="user?.membership === 'core'">
+                Edit Bank Details</button>
+            </div>
+            <div class="col-12 mb-3 text-center">
+              <button class="btn btn-success"
+                (click)='openModalBs(contactInfoModal)'>Edit Personal Info</button>
+            </div>
+            <div class="col-12 mb-3 text-center">
+              <button class="btn btn-success"
+                (click)="openModalBs(changepasswordmodal)">Change password</button>
+            </div>
+            <div class="col-12 mb-3 text-center"
+              *ngIf="user?.membership === 'basic'">
+              <a class="btn btn-success"
+                href='https://www.payumoney.com/paybypayumoney/#/91D48EAAE578CFB5281E809132B49844'>Upgrade Membership</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #changepasswordmodal>
+  <app-change-password (hideModal)="modalRef.hide()"></app-change-password>
+</ng-template>
+<ng-template #editbankdetails>
+  <app-change-bank-detailes (hideModal)="modalRef.hide()"></app-change-bank-detailes>
+</ng-template>
+<ng-template #contactInfoModal>
+  <app-change-personal-information (hideModal)="modalRef.hide()"
+    *ngIf="user"
+    [user]=user
+    (onUserUpdate)="updateUser($event)"></app-change-personal-information>
+</ng-template>
+<ng-template #imagecropper>
+  <div class="modal-body">
+    <div class="overlay-loading"
+      *ngIf="isLoading">
+      <div>
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw"
+          style="color: white"></i>
+        <span class="sr-only">Loading...</span>
+      </div>
+
+    </div>
+    <h4>
+      Crop Image
+      <button type="button"
+        class="close pull-right"
+        aria-label="Close"
+        (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </h4>
+    <image-cropper [imageChangedEvent]="imageChangedEvent"
+      [maintainAspectRatio]="true"
+      [aspectRatio]="1 / 1"
+      [resizeToWidth]="600"
+      format="jpg"
+      (imageCroppedBase64)="imageCropped($event)"
+      (imageLoaded)="imageLoaded()"
+      (loadImageFailed)="loadImageFailed()"></image-cropper>
+    <input type="submit"
+      class="btn btn-success mt-3 btn-outline text-center float-right"
+      value="Save"
+      (click)="onFileChange($event)">
+  </div>
+</ng-template>
+<ng-template #referralCodeModal>
+  <div class="modal-body">
+    <h4 style="margin:0">
+      Referral code
+      <button type="button"
+        class="close pull-right"
+        aria-label="Close"
+        (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </h4>
+    <p>Refer this code to your friends to get 25% referral bonus after they register as a core member.</p>
+    <form>
+      <div class="form-group">
+        <input type="text"
+          disabled
+          [value]="user?.referral_code"
+          [ngClass]="{'valid': isCopied}"
+          class="form-control">
+        <i class="fa fa-copy"
+          ngxClipboard
+          [cbContent]="'Master the art of financial literacy and become a money magnet! Click on the link below to explore the new world of financial freedom - http://gainpassivemoney.com/register/'+user?.referral_code"
+          (cbOnSuccess)="isCopied = true"></i>
+      </div>
+    </form>
+    <small>Note: Copy the above link to share it with your contacts</small>
+  </div>
+</ng-template>

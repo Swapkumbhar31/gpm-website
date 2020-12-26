@@ -1,0 +1,74 @@
+#register-information {
+  padding-top: 70px;
+
+  .form-group {
+    small {
+      color: #f00;
+    }
+
+    [type="radio"]:not(:checked),
+    [type="radio"]:checked {
+      position: absolute;
+      left: -9999px;
+    }
+
+    [type="radio"]:not(:checked)+label,
+    [type="radio"]:checked+label {
+      position: relative;
+      /* permet de positionner les pseudo-éléments */
+      padding-left: 25px;
+      height: 80px;
+      width: 100%;
+      /* fait un peu d'espace pour notre case à venir */
+      cursor: pointer;
+      /* affiche un curseur adapté */
+    }
+
+    [type="radio"]:not(:checked)+label:before,
+    [type="radio"]:checked+label:before {
+      content: '';
+      position: absolute;
+      border-radius: 8px;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 80px;
+      /* dim. of the box */
+      border: 2px solid #b60033;
+      background: #f8f8f8;
+    }
+
+    [type="radio"]:not(:checked)+label:after,
+    [type="radio"]:checked+label:after {
+      width: 100%;
+      position: absolute;
+      border-radius: 8px;
+      top: 0;
+      left: 0;
+      font-size: 20px;
+      line-height: 82px;
+      text-align: center;
+      color: #b60033;
+      transition: all .2s;
+      /* animation incoming :p */
+    }
+
+    .core-membership[type="radio"]:not(:checked)+label:after,
+    .core-membership[type="radio"]:checked+label:after {
+      content: 'Core membership';
+    }
+
+    .basic-membership[type="radio"]:not(:checked)+label:after,
+    .basic-membership[type="radio"]:checked+label:after {
+      content: 'Basic membership';
+    }
+
+    /* if "not checked" */
+    // [type="radio"]:not(:checked)+label:after {}
+    /* If "checked" */
+    [type="radio"]:checked+label:after {
+      background-color: #b60033;
+      color: #fff;
+    }
+  }
+}

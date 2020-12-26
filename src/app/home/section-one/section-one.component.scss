@@ -1,0 +1,328 @@
+#section-one {
+  margin-top: 60px;
+
+  .header {
+    border: 2px solid #02bdc3; //  background-size: cover;
+    border-radius: 5px;
+    width: fit-content;
+    font-family: 'GEOMA_REGULAR_DEMO';
+
+    h1 {
+      font-size: 40px;
+    }
+
+    small {
+      font-size: 25px;
+    }
+  }
+
+  .content {
+    color: white;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    position: relative;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+    .para {
+      p {
+        padding: 5px 10px;
+      }
+
+      .line-image {
+        width: 40%;
+      }
+    }
+
+    &::before {
+      background-size: cover;
+      content: "";
+      display: block;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    &.slide0 {
+      &::before {
+        background-image: url('/assets/images/slider0.jpg') !important;
+      }
+    }
+
+    &.slide1 {
+      &::before {
+        background-image: url('/assets/images/slider1.jpg') !important;
+      }
+    }
+
+    &.slide2 {
+      &::before {
+        background-image: url('/assets/images/slider2.jpg') !important;
+      }
+    }
+
+    &.slide3 {
+      &::before {
+        background-image: url('/assets/images/slider3.jpg') !important;
+      }
+    }
+
+    &.slide4 {
+      &::before {
+        background-image: url('/assets/images/slider4.jpg') !important;
+      }
+    }
+  }
+
+
+  .content::after {
+    // background-color: rgba($color: #000000, $alpha: 0.75);
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #section-one {
+    margin-top: 60px;
+    z-index: -1;
+    .content {
+
+      &.slide0 {
+        &::before {
+          background-image: url('/assets/images/slider-sm-5.jpg') !important;
+        }
+      }
+
+      &.slide1 {
+        &::before {
+          background-image: url('/assets/images/slider1-sm.jpg') !important;
+        }
+      }
+
+      &.slide2 {
+        &::before {
+          background-image: url('/assets/images/slider2-sm.jpg') !important;
+        }
+      }
+
+      &.slide3 {
+        &::before {
+          background-image: url('/assets/images/slider3-sm.jpg') !important;
+        }
+      }
+
+      &.slide4 {
+        &::before {
+          background-image: url('/assets/images/slider4-sm.jpg') !important;
+        }
+      }
+    }
+  }
+
+  .content-border-sm {
+    margin-top: 30px !important;
+  }
+
+  t p {
+    padding: 2px !important;
+  }
+}
+
+#container {
+  position: relative;
+}
+
+#container img {
+  position: absolute;
+  left: 0;
+}
+
+@-webkit-keyframes imgFade {
+  0% {
+    opacity: 1;
+  }
+
+  17% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  92% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes imgFade {
+  0% {
+    opacity: 1;
+  }
+
+  17% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  92% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes imgFade {
+  0% {
+    opacity: 1;
+  }
+
+  17% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  92% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes imgFade {
+  0% {
+    opacity: 1;
+  }
+
+  17% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  92% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#container img {
+  -webkit-animation-name: imgFade;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 8s;
+  -moz-animation-name: imgFade;
+  -moz-animation-timing-function: ease-in-out;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-duration: 8s;
+  -o-animation-name: imgFade;
+  -o-animation-timing-function: ease-in-out;
+  -o-animation-iteration-count: infinite;
+  -o-animation-duration: 8s;
+  animation-name: imgFade;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 8s;
+}
+
+#container img:nth-of-type(1) {
+  -webkit-animation-delay: 10s;
+  -moz-animation-delay: 10s;
+  -o-animation-delay: 10s;
+  animation-delay: 10s;
+}
+
+#container img:nth-of-type(2) {
+  -webkit-animation-delay: 8s;
+  -moz-animation-delay: 8s;
+  -o-animation-delay: 8s;
+  animation-delay: 8s;
+}
+
+#container img:nth-of-type(3) {
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  -o-animation-delay: 4s;
+  animation-delay: 4s;
+}
+
+#container img:nth-of-type(4) {
+  -webkit-animation-delay: 0;
+  -moz-animation-delay: 0;
+  -o-animation-delay: 0;
+  animation-delay: 0;
+}
+
+#container {
+  .slider-img {
+    width: 1285px;
+    height: 100vh;
+  }
+
+  .slider-img-sm {
+    width: 100%;
+    height: 155vh;
+  }
+}
+
+/* Chrome, Safari, Opera */
+
+@-webkit-keyframes zoom {
+  from {
+    -webkit-transform: scale(1, 1);
+  }
+
+  to {
+    -webkit-transform: scale(1.5, 1.5);
+  }
+}
+
+/* Standard syntax */
+
+@keyframes zoom {
+  from {
+    transform: scale(1, 1);
+  }
+
+  to {
+    transform: scale(1.5, 1.5);
+  }
+}
+
+img {
+  -webkit-animation: zoom 50s;
+  /* Chrome, Safari, Opera */
+  animation: zoom 50s;
+}

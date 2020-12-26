@@ -1,0 +1,133 @@
+<div id="contact-us">
+  <div class="content container">
+    <p class="text-center text-muted text-capitalize pt-3">Start Your Journey Now</p>
+    <h1 class="text-center">Contact Us</h1>
+    <div class="text-center">
+      <img src="assets/icons/general-icon/LINEIMG.png"
+        class="img-fluid  sm-img">
+    </div>
+    <div class="para">
+      <div class="row p-lg-5 ">
+        <div class="col-md-6 col-sm-12">
+          <div class="contact-info">
+            <div class="info text-center">
+              <h3>
+                <u>Get in touch with GPM Community</u>
+              </h3>
+              <p class="text-center">
+                We love connecting with our customers and fans. If you have any questions, concerns, or comments you'd
+                like to share with
+                us please do so by utilizing the methods below.
+              </p>
+              <p class="text-center">You can rest assured that we will keep all your correspondence with The GPM
+                Community private and confidential.
+                Thank you!
+              </p>
+            </div>
+            <div class="info text-center">
+              <span class="key">Email:</span>
+              <span class="value">
+                <!-- customerservice@richdad.com -->
+                Info<span class="number">@</span>yoovaventures.com
+              </span>
+            </div>
+            <div class="info text-center">
+              <span class="key">Contact: </span>
+              <span class="value">
+                <!-- customerservice@richdad.com -->
+                <span class="number">+91 97694 21428</span>
+              </span>
+            </div>
+          </div>
+          <div class="row mt-3 mb-4">
+            <div class="col-6">
+              <a href="https://www.facebook.com/gainpassivemoney"
+                target="_blank">
+                <div id="fb-icon"
+                  class="float-right">
+                </div>
+              </a>
+            </div>
+            <div class="col-6 linkdin">
+              <a href="https://www.linkedin.com/company/gain-passive-money"
+                target="_blank">
+                <div id="linkdin-icon">
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="visible-sm">
+            <div class="text-center">
+              <img src="assets/icons/general-icon/LINEIMG.png"
+                class="img-fluid  sm-img">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12 contact-form"
+          style="margin-bottom: 20px;">
+          <div class="form-section">
+            <form [formGroup]="contactUsForm"
+              (ngSubmit)="onSubmit()">
+              <div class=" col-12 alert alert-danger"
+                *ngIf="isError">
+                <div>{{isError}}</div>
+              </div>
+              <div class="col-12 alert alert-success"
+                *ngIf="isSuccess">
+                <div>{{isSuccess}}</div>
+              </div>
+              <div class="form-group">
+                <label>Name:</label>
+                <input type="text"
+                  formControlName="name"
+                  class="form-control"
+                  placeholder="Enter your Name"
+                  required>
+                <small *ngIf="contactUsForm.controls.name.invalid && (contactUsForm.controls.name.dirty || contactUsForm.controls.name.touched)">*Required
+                  field
+                </small>
+              </div>
+              <div class="form-group">
+                <div class="form-group">
+                  <label>Email:</label>
+                  <input name="email"
+                    type="email"
+                    formControlName="email"
+                    class="form-control"
+                    placeholder="Enter your email">
+                  <small *ngIf="contactUsForm.controls.email.invalid && (contactUsForm.controls.email.dirty || contactUsForm.controls.email.touched)">*Required
+                    field
+                  </small>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Message:</label>
+                <textarea type="text"
+                  rows="3"
+                  formControlName="message"
+                  class="form-control"
+                  placeholder="Enter Your Message"
+                  required></textarea>
+                <small *ngIf="contactUsForm.controls.message.invalid && (contactUsForm.controls.message.dirty || contactUsForm.controls.message.touched)">*Required
+                  field
+                </small>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-danger btn-md text-uppercase">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="1965659610194536"
+  theme_color="#6699cc">
+</div>

@@ -1,0 +1,89 @@
+<div class="modal-body change-bank">
+  <button type="button"
+    class="close pull-right"
+    aria-label="Close"
+    (click)="hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <form [formGroup]="changeBankDetailsForm"
+    (ngSubmit)="submit()">
+    <fieldset>
+      <legend align="center">
+        <strong> Update Bank Details </strong>
+      </legend>
+      <div class="row justify-content-center">
+        <div class="col-10 col-lg-8 alert alert-danger mt-3 mb-3"
+          *ngIf="isError">
+          <span>{{isError}}</span>
+        </div>
+        <div class="col-10 col-lg-8 alert alert-success mt-3 mb-3"
+          *ngIf="isSuccess">
+          <span>{{isSuccess}}</span>
+        </div>
+        <div class="col-lg-8 col-10 text-center form-group mt-3">
+          <label>
+            Your Bank name*
+          </label>
+          <input type="bank_name"
+            class="form-control"
+            formControlName="bank_name"
+            placeholder="Enter your bank name"
+            (focus)="isError = '' && isSuccess = ''">
+          <div *ngIf="changeBankDetailsForm.controls.bank_name.invalid && (changeBankDetailsForm.controls.bank_name.dirty || changeBankDetailsForm.controls.bank_name.touched)">
+            <small *ngIf="changeBankDetailsForm.controls.bank_name.errors.required">
+              *Required field
+            </small>
+          </div>
+        </div>
+        <div class=" col-lg-8 col-10 text-center form-group">
+          <label>
+            Bank Account Number*
+          </label>
+          <input type="text"
+            class="form-control"
+            formControlName="account_number"
+            placeholder="Enter your account number"
+            (focus)="isError = '' && isSuccess = ''">
+          <div *ngIf="changeBankDetailsForm.controls.account_number.invalid && (changeBankDetailsForm.controls.account_number.dirty || changeBankDetailsForm.controls.account_number.touched)">
+            <small *ngIf="changeBankDetailsForm.controls.account_number.errors.required">
+              *Required field
+            </small>
+          </div>
+        </div>
+        <div class="col-lg-8 col-10 text-center form-group">
+          <label>
+            Enter IFSC*
+          </label>
+          <input type="text"
+            class="form-control"
+            formControlName="ifsc"
+            placeholder="Enter your IFSC"
+            (focus)="isError = '' && isSuccess = ''">
+          <div *ngIf="changeBankDetailsForm.controls.ifsc.invalid && (changeBankDetailsForm.controls.ifsc.dirty || changeBankDetailsForm.controls.ifsc.touched)">
+            <small *ngIf="changeBankDetailsForm.controls.ifsc.errors.required">
+              *Required field
+            </small>
+          </div>
+        </div>
+        <div class="col-lg-8 col-10 text-center form-group">
+          <label>
+            Name as per Passbook*
+          </label>
+          <input type="text"
+            class="form-control"
+            formControlName="name"
+            placeholder="Enter your Name as per Passbook"
+            (focus)="isError = '' && isSuccess = ''">
+          <div *ngIf="changeBankDetailsForm.controls.name.invalid && (changeBankDetailsForm.controls.name.dirty || changeBankDetailsForm.controls.name.touched)">
+            <small *ngIf="changeBankDetailsForm.controls.name.errors.required">
+              *Required field
+            </small>
+          </div>
+        </div>
+        <div class="col-lg-8 col-10 text-center m-3">
+          <button class="btn btn-danger text-uppercase">Save</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>

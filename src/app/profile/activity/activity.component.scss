@@ -1,0 +1,51 @@
+#activities {
+  margin-top: 60px;
+  font-family: 'ARLRDBD';
+}
+
+.icons {
+  height: 35px;
+}
+
+.value {
+  font-size: 20px;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.image-icons {
+  position: relative;
+  min-width: 50px;
+}
+.log::first-letter{
+  text-transform: capitalize;
+}
+
+.verified {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  height: 20px;
+}
+$profile-color: #003e6f;
+.btn-success {
+    border: 0;
+    background-color: $profile-color;
+    border-radius: 20px;
+    box-shadow: 0 0 0 0.4rem rgba($profile-color, .4);
+  
+    &.btn-lg {
+      border-radius: 28px;
+    }
+  
+    &.btn-sm {
+      border-radius: 16px;
+    }
+  
+    &:focus {
+      box-shadow: 0 0 0 0.4rem rgba($profile-color, .6);
+    }
+  }
+  

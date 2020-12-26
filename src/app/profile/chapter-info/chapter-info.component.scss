@@ -1,0 +1,97 @@
+#chapterinfo {
+    .card{
+      padding: 0;
+    }
+    .info-container{
+      padding: 30px 20px;
+    }
+    .chapter-card {
+      margin-bottom: 20px;
+      font-family: 'AvenirNextRegular';
+      .chapter-name {
+        .fa-succss {
+          color: #00c2c9;
+          padding-right: 14px;
+          padding-left: 14px;
+          font-size: 20px;
+        }
+        .fa-locked {
+          color: #ff0000;
+          padding-right: 14px;
+          padding-left: 14px;
+          font-size: 20px;
+        }
+        .fa-resume {
+          color: rgb(255, 255, 00);
+          padding-right: 14px;
+          padding-left: 14px;
+          font-size: 20px;
+        }
+        .chap-count {
+          float: right;
+          color: #00c2c9;
+          font-size: 14px;
+        }
+      }
+      .chapters{
+        padding: 20px 10px;
+        border-top: 1px solid #c6c6c6;
+        .fa-succss {
+          color: #00c2c9;
+          padding-right: 14px;
+          padding-left: 14px;
+          font-size: 20px;
+        }
+        .fa-resume {
+          color: rgb(255, 255, 00);
+          padding-right: 14px;
+          padding-left: 14px;
+          font-size: 20px;
+        }
+        .resume{
+          color: #00c2c9;
+          cursor: pointer;
+        }
+      }
+      .progress-bar-container {
+        max-width: 500px;
+        margin-top: 15px;
+        .title {
+          color: #c6c6c6;
+          .percent {
+            float: right;
+            color: #00c2c9;
+            font-size: 14px;
+          }
+        }
+        progress {
+          border-radius: 7px;
+          width: 100%;
+          height: 10px;
+          background-image: linear-gradient(0deg, #00c2c9 0%, #00efb4 100%);
+          background-image: -moz-linear-gradient(0deg, #00c2c9 0%, #00efb4 100%);
+          background-image: -o-linear-gradient(0deg, #00c2c9 0%, #00efb4 100%);
+          background-image: -webkit-linear-gradient(0deg, #00c2c9 0%, #00efb4 100%);
+        }
+        progress::-webkit-progress-bar {
+          background-color: #d7d7d7;
+          border-radius: 7px;
+        }
+        progress::-webkit-progress-value {
+          border-radius: 7px;
+          background-image: linear-gradient(0deg, #00c2c9 0%, #00efb4 100%);
+          background-image: -moz-linear-gradient(0deg, #00c2c9 0%, #00efb4 100%);
+          background-image: -o-linear-gradient(0deg, #00c2c9 0%, #00efb4 100%);
+          background-image: -webkit-linear-gradient(0deg, #00c2c9 0%, #00efb4 100%);
+        }
+        progress::-moz-progress-bar {
+          /* style rules */
+          background-image: linear-gradient(0deg, #00c2c9 0%, #00efb4 100%);
+          background-image: -moz-linear-gradient(0deg, #00c2c9 0%, #00efb4 100%);
+          background-image: -o-linear-gradient(0deg, #00c2c9 0%, #00efb4 100%);
+          background-image: -webkit-linear-gradient(0deg, #00c2c9 0%, #00efb4 100%);
+        }
+      }
+    }
+  }
+  

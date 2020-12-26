@@ -1,0 +1,89 @@
+<div class="hidden-lg">
+  <nav class="navbar navbar-expand-lg bg-white navbar-dark  fixed-top justify-content-between">
+    <a class="navbar-brand" href="javascript:void(0)" routerLink="/">
+      <img src="assets/icons/general-icon/GPM Logo_Line.png" alt="Logo" style="height:20px;">
+    </a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" [routerLinkActiveOptions]="{exact: true}" routerLink="/" routerLinkActive="active" href="javascript:void(0)">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about-us" routerLinkActive="active" href="javascript:void(0)">About Us</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
+        <a class="nav-link" routerLinkActive="active" routerLink="/profile" href="javascript:void(0)">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact-us" routerLinkActive="active" href="javascript:void(0)">Contact Us</a>
+      </li>
+      <li class="nav-item no-dash">
+        <a class="nav-link" routerLinkActive="active" href="javascript:void(0)" *ngIf="!authService.isLoggedIn()"
+          (click)="openModal()">Log in</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
+        <a class="nav-link" routerLinkActive="active" href="javascript:void(0)" (click)="logout()">Logout</a>
+      </li>
+      <li class="nav-item no-dash">
+        <a class="nav-link" href="javascript:void(0)" (click)="openeNav()">
+          <img src="assets/icons/general-icon/menu.svg" class="img-fluid">
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="visible-sm sm-navbar">
+
+  <div class="row bg-white">
+    <div class="menu-sm col-6 logo-sm">
+      <a routerLink="/">
+        <img src="assets/icons/general-icon/GPM_Logo_Line.png" alt="Logo">
+      </a>
+    </div>
+    <div class="menu-sm col-4" *ngIf="authService.isLoggedIn()">
+      <a class="nav-sm logged-sm" href="javascript:void(0)" (click)="logout()">Logout</a>
+    </div>
+    <div class="menu-sm col-4" *ngIf="!authService.isLoggedIn()">
+      <a class="nav-sm logged-sm" href="javascript:void(0)" (click)="openModal()">Log in</a>
+    </div>
+    <div class="menu-sm col-2 text-right" (click)="openeNav()">
+      <img class="icon" src="assets/icons/general-icon/menu.svg" height="20px">
+    </div>
+  </div>
+</div>
+
+<div class="full-page-menu">
+  <div class="menu-backdrop" id="menu-backdrop">
+    <div class="close-btn" (click)="closeNav()">
+      <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+    </div>
+    <ul class="menu">
+      <li>
+        <a href="javascript:void(0)" routerLink="/" class="menu-link" (click)="closeNav()">Home</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isLoggedIn()">
+        <a class="nav-link" class="menu-link" routerLink="/profile" (click)="closeNav()" href="javascript:void(0)">Dashboard</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" routerLink="/about-us" class="menu-link" (click)="closeNav()">About Us</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" routerLink="/membership" class="menu-link" (click)="closeNav()">Membership</a>
+      </li>
+      <li *ngIf="!authService.isLoggedIn()">
+        <a href="javascript:void(0)" class="menu-link" routerLink="/register" (click)="closeNav()">Registration</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" routerLink="/terms-condtions" class="menu-link" (click)="closeNav()">Terms &
+          Conditions
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" routerLink="/refund-policy" class="menu-link" (click)="closeNav()">Refund Policy</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" routerLink="/contact-us" class="menu-link" (click)="closeNav()">Contact Us</a>
+      </li>
+
+    </ul>
+  </div>
+</div>

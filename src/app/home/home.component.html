@@ -1,0 +1,89 @@
+<app-section-one></app-section-one>
+<app-section-two></app-section-two>
+<app-section-three></app-section-three>
+<div class="container-fluid">
+    <h1 class="text-center m-2 mt-5">Introduction videos</h1>
+    <div class="d-block text-center">
+        <img src="assets/icons/general-icon/LINEIMG.png"
+            class="img-fluid  mb-4 mt-4 sm-img">
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <iframe src="https://www.youtube.com/embed/6ZkB4dPd8I8?rel=0"
+                frameborder="0"
+                height="400"
+                style="width: 100%;"
+                allowfullscreen
+                class="video"></iframe>
+        </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-lg-3 col-sm-6">
+            <iframe src="https://www.youtube.com/embed/wPO1f3N-d-8?rel=0"
+                frameborder="0"
+                height="300"
+                style="width: 100%;"
+                allowfullscreen
+                class="video"></iframe>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <iframe src="https://www.youtube.com/embed/vn2Sen5K-Vw?rel=0"
+                frameborder="0"
+                height="300"
+                style="width: 100%;"
+                allowfullscreen
+                class="video"></iframe>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <iframe src="https://www.youtube.com/embed/tZ4q0wks5W4?rel=0"
+                frameborder="0"
+                height="300"
+                style="width: 100%;"
+                allowfullscreen
+                class="video"></iframe>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <iframe src="https://www.youtube.com/embed/cfXo-BRgmAY?rel=0"
+                frameborder="0"
+                height="300"
+                style="width: 100%;"
+                allowfullscreen
+                class="video"></iframe>
+        </div>
+    </div>
+</div>
+<app-section-four></app-section-four>
+<div class="d-block text-center">
+    <small>Designed and developed by <a href="http://wynkcommunications.com/">wynkcommunications.com</a></small>
+</div>
+<a href="javascript:void(0)"
+    *ngIf="isDisplayArrow"
+    class="float"
+    (click)="scrollToTop()">
+    <img class="img-fluid"
+        src="/assets/icons/general-icon/Go_Up_Arrow.svg" />
+</a>
+<!-- <div id="loader" class="d-flex align-items-center justify-content-center">
+    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+    <span class="sr-only">Loading...</span>
+</div> -->
+<div class="fixed-bottom bg-light animated slideInUp  bg-secondary"
+    *ngIf="isShowingAd">
+    <div class="position-relative d-flex justify-content-center flex-column align-items-center">
+        <div class="w-100">
+            <span class="mt-2 mr-3 cursor-hand cursor-hand float-right"
+                (click)="close()">X</span>
+        </div>
+        <div class="container mt-2 text-center">
+            <h4>Master the art of financial literacy! </h4>
+            <span>Download our app from the playstore.</span>
+        </div>
+        <a target="_blank"
+            href="https://play.google.com/store/apps/details?id=com.androgeekapps.educationalportal">
+            <img src="../../assets/images/google-play-store.png"
+                alt="google-play-store"
+                height="60">
+        </a>
+    </div>
+</div>

@@ -1,0 +1,289 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'assets/css/animate.scss';
+
+$success-color: #02bdc3;
+$danger-color: #b60033;
+$waring-color: #eb6517;
+@font-face {
+    font-family: 'GEOMA_REGULAR_DEMO';
+    src: url('assets/fonts/GEOMA_REGULAR_DEMO.OTF');
+}
+
+@font-face {
+    font-family: 'ANTIPASTOPRO_BOLD_TRIAL';
+    src: url('assets/fonts/ANTIPASTOPRO_BOLD_TRIAL.TTF');
+}
+
+@font-face {
+    font-family: 'ANTIPASTOPRO_EXTRABOLD_TRIAL';
+    src: url('assets/fonts/ANTIPASTOPRO_EXTRABOLD_TRIAL.TTF');
+}
+
+@font-face {
+    font-family: 'ANTIPASTOPRO_LIGHT_TRIAL';
+    src: url('assets/fonts/ANTIPASTOPRO_LIGHT_TRIAL.TTF');
+}
+
+@font-face {
+    font-family: 'ANTIPASTOPRO_DEMIBOLD_TRIAL';
+    src: url('assets/fonts/ANTIPASTOPRO_DEMIBOLD_TRIAL.TTF');
+}
+
+@font-face {
+    font-family: 'ANTIPASTOPRO_THIN_TRIAL';
+    src: url('assets/fonts/ANTIPASTOPRO_THIN_TRIAL.TTF');
+}
+
+@font-face {
+    font-family: 'ANTIPASTOPRO_TRIAL';
+    src: url('assets/fonts/ANTIPASTOPRO_TRIAL.TTF');
+}
+
+@font-face {
+    font-family: 'ARLRDBD';
+    src: url('assets/fonts/ARLRDBD.TTF');
+}
+
+@font-face {
+    font-family: 'TT0524M_';
+    src: url('assets/fonts/TT0524M_.TTF');
+}
+
+html,
+body {
+    font-family: 'ANTIPASTOPRO_DEMIBOLD_TRIAL';
+}
+
+.number {
+    font-family: 'ARLRDBD' !important;
+    font-size: 16px !important;
+}
+
+form {
+    font-family: 'ARLRDBD';
+}
+
+.text-muted {
+    color: #aeb5bc !important;
+}
+
+p {
+    font-size: 20px;
+}
+
+.btn {
+    color: #ffffff;
+    padding: 0.25rem 2rem;
+    font-family: 'ARLRDBD' !important;
+    &.btn-lg {
+        padding: .5rem 3rem;
+    }
+    &.btn-success {
+        background-color: $success-color;
+        border-radius: 20px;
+        box-shadow: 0 0 0 0.4rem rgba($success-color, .4);
+        &.btn-lg {
+            border-radius: 28px;
+        }
+        &.btn-sm {
+            border-radius: 16px;
+        }
+        &:focus {
+            box-shadow: 0 0 0 0.4rem rgba($success-color, .6);
+        }
+    }
+    &.btn-danger {
+        background-color: $danger-color;
+        border-radius: 20px;
+        box-shadow: 0 0 0 0.4rem rgba($danger-color, .4);
+        &.btn-lg {
+            border-radius: 28px;
+        }
+        &.btn-sm {
+            border-radius: 16px;
+        }
+        &:focus {
+            box-shadow: 0 0 0 0.4rem rgba($danger-color, .6);
+        }
+    }
+    &.btn-warning {
+        background-color: $waring-color;
+        border-radius: 20px;
+        box-shadow: 0 0 0 0.4rem rgba($waring-color, .4);
+        &:hover {
+            color: #ffffff;
+        }
+        &.btn-lg {
+            border-radius: 28px;
+        }
+        &.btn-sm {
+            border-radius: 16px;
+        }
+        &:focus {
+            box-shadow: 0 0 0 0.4rem rgba($waring-color, .6);
+        }
+    }
+}
+
+.hr {
+    &.hr-danger {
+        border-top: 2px solid rgba(#ff022c, .9);
+    }
+    &.hr-yellow {
+        border-top: 2px solid rgba(#f9da06, .9);
+    }
+    &.hr-success {
+        border-top: 2px solid rgba(#19a05e, .9);
+    }
+    &.hr-primary {
+        border-top: 2px solid rgba(#4d8cf6, .9);
+    }
+}
+
+.modal {
+    @media(min-width: 720px) {
+        text-align: center;
+        &:before {
+            content: '';
+            height: 100%;
+            width: 1px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .modal-dialog {
+            min-width: 500px;
+            text-align: left;
+            margin: 10px auto;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+
+fieldset {
+    display: block !important;
+    border-radius: 20px;
+    margin: 10px 15px;
+    border: 3px solid black !important;
+    legend {
+        width: fit-content;
+        padding: 0 10px;
+    }
+}
+
+/* fieldset 
+{
+    border: 1px solid #ddd !important;
+    margin: 0;
+    xmin-width: 0;
+    padding: 10px;       
+    position: relative;
+    border-radius:4px;
+    background-color:#f5f5f5;
+    padding-left:10px!important;
+}	 */
+
+.card {
+    border: 0px;
+    &.card-shadow {
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    }
+}
+
+div.callout {
+    background-color: #444;
+    background-image: -moz-linear-gradient(top, #444, #444);
+    position: relative;
+    padding: 10px;
+    border-radius: 3px;
+    border: 2px solid $danger-color;
+    /*box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;*/
+}
+
+// Triangular Notch
+.callout::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border: 0.8em solid transparent;
+    position: absolute;
+}
+
+.callout.top::before {
+    left: calc(50% - 13px);
+    bottom: -21px;
+    border-top: 10px solid $danger-color;
+}
+
+.callout.bottom::before {
+    left: calc(50% - 10px);
+    top: -20px;
+    border-bottom: 10px solid $danger-color;
+}
+
+.callout.left::before {
+    right: -20px;
+    top: 40%;
+    border-left: 10px solid $danger-color;
+}
+
+.callout.right::before {
+    left: -20px;
+    top: 40%;
+    border-right: 10px solid $danger-color;
+}
+
+.callout.top-left::before {
+    left: 7px;
+    bottom: -20px;
+    border-top: 10px solid $danger-color;
+}
+
+.callout.top-right::before {
+    right: 7px;
+    bottom: -20px;
+    border-top: 10px solid $danger-color;
+}
+
+@media screen and (max-width: 600px) {
+    .hidden-lg {
+        display: none;
+    }
+    .visible-sm {
+        display: inherit;
+    }
+    .btn.btn-lg {
+        padding: .2rem 1rem !important;
+    }
+    .sm-img {
+        width: 100% !important;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .hidden-lg {
+        display: inherit;
+    }
+    .visible-sm {
+        display: none;
+    }
+    /*  .modal {
+        display: flex !important;
+    } */
+}
+
+@media screen and (max-width: 600px) {
+    .modal-dialog {
+        margin-left: 4% !important;
+        margin-top: 20% !important;
+    }
+    .modal-content {
+        width: 95% !important;
+    }
+    .sm-modal-view {
+        padding: 10px;
+    }
+}
+.cursor-hand{
+    cursor: pointer;
+}

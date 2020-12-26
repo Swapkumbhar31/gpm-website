@@ -1,0 +1,84 @@
+#section-four {
+    .para {
+        margin-top: 5%;
+        input,
+        textarea {
+            border: #ebebeb;
+            background: #ebebeb;
+            border-radius: 10px;
+        }
+        ::placeholder {
+            color: black;
+        }
+        .social-icon {
+            padding: 0 !important;
+            list-style: none;
+            margin-top: 10px;
+            li {
+                padding: 5px;
+                display: inline;
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+        small {
+            color: #b60033;
+        }
+        .btn.btn-lg {
+            font-size: 16px;
+            padding: .2rem 1rem;
+        }
+        #fb-icon {
+            background-image: url('/assets/icons/social-media/Fb_Grey.svg');
+            background-size: cover;
+            height: 30px;
+            width: 30px;
+        }
+        #fb-icon:hover {
+            background-image: url('/assets/icons/social-media/Fb_Colour.svg');
+        }
+        .linkdin {
+            margin-left: -13px;
+            #linkdin-icon {
+                background-image: url('/assets/icons/social-media/linkedin_grey.svg');
+                background-size: cover;
+                height: 30px;
+                width: 30px;
+            }
+            #linkdin-icon:hover {
+                background-image: url('/assets/icons/social-media/linkedin_colour.svg');
+            }
+        }
+    }
+}
+
+/* .icon-fb {
+    a {
+        height: 24px;
+        width: 24px;
+        position: relative;
+        display: inline-block;
+        background-image: url('/assets/icons/social-media/Fb_Grey.svg');
+       
+    }
+    a:hover {
+
+        
+        background-image: url('/assets/icons/social-media/Fb_Colour.svg');
+        }
+} */
+
+@media screen and (max-width: 600px) {
+    .social-icon {
+        li {
+            padding: 5px;
+            display: inline;
+            img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+}

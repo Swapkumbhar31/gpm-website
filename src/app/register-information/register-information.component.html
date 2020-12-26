@@ -1,0 +1,329 @@
+<div id="register-information">
+  <h2 class="text-center">MEMBER INFORMATION</h2>
+  <div class="text-center">
+    <img src="assets/icons/general-icon/LINEIMG.png"
+      class="img-fluid pt-2 sm-img">
+  </div>
+  <form [formGroup]="register">
+    <div class="container">
+      <div *ngIf="errorText"
+        class="alert alert-danger">
+        <span>{{errorText}}</span>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="form-group col-lg-6 col-12">
+              <label>
+                First Name*
+              </label>
+              <input type="text"
+                formControlName="firstname"
+                class="form-control"
+                placeholder="Enter your first name">
+              <div *ngIf="register.controls.firstname.invalid && (register.controls.firstname.dirty || register.controls.firstname.touched)">
+                <small *ngIf="register.controls.firstname.errors.minlength">
+                  First name must be at least 3 characters long.
+                </small>
+                <small *ngIf="register.controls.firstname.errors.required">
+                  Required field
+                </small>
+                <small *ngIf="register.controls.firstname.errors.pattern">
+                  Name must contain only letters
+                </small>
+              </div>
+            </div>
+            <div class="form-group col-lg-6 col-12">
+              <label>
+                Last Name*
+              </label>
+              <input type="text"
+                formControlName="lastname"
+                class="form-control"
+                placeholder="Enter your first name">
+              <div *ngIf="register.controls.lastname.invalid && (register.controls.lastname.dirty || register.controls.lastname.touched)">
+                <small *ngIf="register.controls.lastname.errors.minlength">
+                  First name must be at least 3 characters long.
+                </small>
+                <small *ngIf="register.controls.lastname.errors.required">
+                  Required field
+                </small>
+                <small *ngIf="register.controls.lastname.errors.pattern">
+                  Name must contain only letters
+                </small>
+              </div>
+            </div>
+            <div class="form-group col-lg-6 col-12">
+              <label>
+                Email*
+              </label>
+              <input type="email"
+                formControlName="email"
+                class="form-control"
+                placeholder="Enter your email">
+              <div *ngIf="register.controls.email.invalid && (register.controls.email.dirty || register.controls.email.touched)">
+                <small *ngIf="register.controls.email.errors.email">
+                  Enter valid email address
+                </small>
+                <small *ngIf="register.controls.email.errors.required">
+                  Required field
+                </small>
+              </div>
+            </div>
+            <div class="form-group col-lg-6 col-12">
+              <label>
+                Contact*
+              </label>
+              <div class="container">
+                <div class="row">
+                  <select class="form-control col-4">
+                    <option *ngFor="let code of countryCodeArray"
+                      [value]="code.dial_code">{{code.name}}({{code.dial_code}})</option>
+                  </select>
+                  <input formControlName="contact"
+                    name="contact"
+                    class="form-control col-8"
+                    placeholder="Enter your contact">
+                </div>
+              </div>
+              <div *ngIf="register.controls.contact.invalid && (register.controls.contact.dirty || register.controls.contact.touched)">
+                <small *ngIf="register.controls.contact.errors.required">
+                  Required field
+                </small>
+                <small *ngIf="register.controls.contact.errors.minlength">
+                  Phone number must be at least 10 digits long.
+                </small>
+                <small *ngIf="register.controls.contact.errors.maxlength">
+                  Phone number must be at least 10 digits long.
+                </small>
+              </div>
+            </div>
+            <div class="form-group col-lg-6 col-12">
+              <label>
+                New Password*
+              </label>
+              <input type="password"
+                formControlName="password"
+                class="form-control"
+                placeholder="Enter your password">
+              <div *ngIf="register.controls.password.invalid && (register.controls.password.dirty || register.controls.password.touched)">
+                <small *ngIf="register.controls.password.errors.required">
+                  Required field
+                </small>
+                <small *ngIf="register.controls.password.errors.minlength">
+                  Password must be at least 6 characters long.
+                </small>
+              </div>
+            </div>
+            <div class="form-group col-lg-6 col-12">
+              <label>
+                Confirm Password*
+              </label>
+              <input type="password"
+                formControlName="cpassword"
+                class="form-control"
+                placeholder="confirm password">
+              <div *ngIf="register.controls.cpassword.invalid && (register.controls.cpassword.dirty || register.controls.cpassword.touched)">
+                <small *ngIf="register.controls.cpassword.errors.required">
+                  Required field
+                </small>
+              </div>
+              <small *ngIf="register.controls.password.value !== register.controls.cpassword.value">
+                Password not match
+              </small>
+            </div>
+            <div class="form-group col-lg-6 col-12">
+              <label>
+                PAN card number*
+              </label>
+              <input type="text"
+                class="form-control"
+                formControlName="pancard"
+                id="pancard"
+                placeholder="Enter your pan card number">
+              <div *ngIf="register.controls.pancard.invalid && (register.controls.pancard.dirty || register.controls.pancard.touched)">
+                <small *ngIf="register.controls.pancard.errors.required">
+                  Required field
+                </small>
+                <small *ngIf="register.controls.pancard.errors.pattern">
+                  Invalid Pancard Number
+                </small>
+              </div>
+            </div>
+            <div class="form-group col-lg-6 col-12">
+              <label>
+                Date of Birth*
+              </label>
+              <input type="text"
+                id="dob"
+                class="form-control"
+                formControlName="dob"
+                placeholder="YYYY/MM/DD">
+              <div *ngIf="register.controls.dob.invalid && (register.controls.dob.dirty || register.controls.dob.touched)">
+                <small *ngIf="register.controls.dob.errors.required">
+                  Required field
+                </small>
+                <small *ngIf="register.controls.dob.errors.pattern">
+                  Invalid Date format (YYYY/MM/DD)
+                </small>
+                <small *ngIf="register.controls.dob.errors.month">
+                  Invalid month
+                </small>
+              </div>
+            </div>
+            <div class="form-group col-lg-6 col-12">
+              <label>
+                Address*
+              </label>
+              <input type="text"
+                class="form-control"
+                formControlName="address"
+                placeholder="Enter your living address">
+              <div *ngIf="register.controls.address.invalid && (register.controls.address.dirty || register.controls.address.touched)">
+                <small *ngIf="register.controls.address.errors.required">
+                  Required field
+                </small>
+              </div>
+            </div>
+            <div class="form-group col-lg-6 col-12">
+              <label>
+                City*
+              </label>
+              <input type="text"
+                class="form-control"
+                formControlName="city"
+                placeholder="Enter your city">
+              <div *ngIf="register.controls.city.invalid && (register.controls.city.dirty || register.controls.city.touched)">
+                <small *ngIf="register.controls.city.errors.required">
+                  Required field
+                </small>
+                <small *ngIf="register.controls.city.errors.pattern">
+                  Invalid city name format
+                </small>
+              </div>
+            </div>
+            <div class="form-group col-lg-6 col-12">
+              <label>
+                State*
+              </label>
+              <input type="text"
+                class="form-control"
+                formControlName="state"
+                placeholder="Enter your state">
+              <!-- <select type="text"
+                class="form-control"
+                formControlName="state"
+                placeholder="Enter your state">
+                <option [value]="state.name"
+                  *ngFor="let state of statesArray">{{state.name}}</option>
+              </select> -->
+              <div *ngIf="register.controls.state.invalid && (register.controls.state.dirty || register.controls.state.touched)">
+                <small *ngIf="register.controls.state.errors.required">
+                  Required field
+                </small>
+                <small *ngIf="register.controls.state.errors.pattern">
+                  Invalid state name format
+                </small>
+              </div>
+            </div>
+            <div class="form-group col-lg-6 col-12">
+              <label>
+                Country*
+              </label>
+              <select type="text"
+                class="form-control"
+                formControlName="country"
+                placeholder="Select your country">
+                <option value="country"
+                  *ngFor="let country of countries">{{country}}</option>
+              </select>
+              <div *ngIf="register.controls.country.invalid && (register.controls.country.dirty || register.controls.country.touched)">
+                <small *ngIf="register.controls.country.errors.required">
+                  Required field
+                </small>
+              </div>
+            </div>
+          </div>
+          <div class="row"
+            *ngIf="type === 'core'">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="form-group">
+                <label>
+                  Your Bank name*
+                </label>
+                <input type="bankname"
+                  class="form-control"
+                  formControlName="bankname"
+                  placeholder="Enter your bank name">
+                <div *ngIf="register.controls.bankname.invalid && (register.controls.bankname.dirty || register.controls.bankname.touched)">
+                  <small *ngIf="register.controls.bankname.errors.required">
+                    Required field
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="form-group">
+                <label>
+                  Bank Account Number*
+                </label>
+                <input type="text"
+                  class="form-control"
+                  formControlName="accountnumber"
+                  placeholder="Enter your account number">
+                <div *ngIf="register.controls.accountnumber.invalid && (register.controls.accountnumber.dirty || register.controls.accountnumber.touched)">
+                  <small *ngIf="register.controls.accountnumber.errors.required">
+                    Required field
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="form-group">
+                <label>
+                  Enter IFSC*
+                </label>
+                <input type="text"
+                  class="form-control"
+                  formControlName="ifsc"
+                  placeholder="Enter your IFSC">
+                <div *ngIf="register.controls.ifsc.invalid && (register.controls.ifsc.dirty || register.controls.ifsc.touched)">
+                  <small *ngIf="register.controls.ifsc.errors.required">
+                    Required field
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="form-group">
+                <label>
+                  Name as per passbook*
+                </label>
+                <input type="text"
+                  class="form-control"
+                  formControlName="nameonpassbook"
+                  placeholder="Enter your name As Passbook">
+                <div *ngIf="register.controls.nameonpassbook.invalid && (register.controls.nameonpassbook.dirty || register.controls.nameonpassbook.touched)">
+                  <small *ngIf="register.controls.nameonpassbook.errors.required">
+                    Required field
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <small *ngIf="type === 'core'"
+            class="text-danger">Note : Bank account details are required for direct
+            settlement of referral bonuses in
+            your account</small>
+          <div class="form-group col-12 text-center mt-4">
+            <button class="btn btn-danger text-uppercase"
+              (click)="registerForm()">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>

@@ -1,0 +1,21 @@
+#section-2 {
+    .container-fluid {
+        border: 2px solid rgba($color: #000000, $alpha: 0.2);
+        border-radius: 20px;
+    }
+    h1 {
+        font-family: 'GEOMA_REGULAR_DEMO';
+    }
+    .img-div {
+        text-align: center;
+        img {
+            width: 30%;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #section-one {
+        margin-top: 0;
+    }
+}

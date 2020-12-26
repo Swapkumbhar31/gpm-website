@@ -1,0 +1,130 @@
+<div class="modal-body change-info">
+  <button type="button"
+    class="close pull-right"
+    aria-label="Close"
+    (click)="hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <form [formGroup]="contactInfoForm"
+    (ngSubmit)="submit()">
+    <fieldset>
+      <legend align="center">
+        <strong> Change Personal Info</strong>
+      </legend>
+      <div class="row justify-content-center">
+        <div class="col-10 mt-3 mb-3 alert"
+          *ngIf="isError || isSuccess"
+          [ngClass]="{'alert-danger':isError, 'alert-success':isSuccess}">
+          <span>{{msg}}</span>
+        </div>
+        <div class="col-10 col-lg-8 form-group text-center">
+          <label>
+            First Name
+          </label>
+          <input type="email"
+            formControlName="firstname"
+            class="form-control"
+            placeholder="Enter your first name">
+          <div *ngIf="contactInfoForm.controls.firstname.invalid && (contactInfoForm.controls.firstname.dirty || contactInfoForm.controls.firstname.touched)">
+            <small *ngIf="contactInfoForm.controls.firstname.errors.required">
+              Required field
+            </small>
+            <small *ngIf="contactInfoForm.controls.firstname.errors.pattern">
+              First name should not contain space, special character, number.
+            </small>
+          </div>
+        </div>
+        <div class="col-10 col-lg-8 form-group text-center">
+          <label>
+            Last Name
+          </label>
+          <input type="email"
+            formControlName="lastname"
+            class="form-control"
+            placeholder="Enter your last name">
+          <div *ngIf="contactInfoForm.controls.lastname.invalid && (contactInfoForm.controls.lastname.dirty || contactInfoForm.controls.lastname.touched)">
+            <small *ngIf="contactInfoForm.controls.lastname.errors.required">
+              Required field
+            </small>
+            <small *ngIf="contactInfoForm.controls.lastname.errors.pattern">
+              Last name should not contain space, special character, number.
+            </small>
+          </div>
+        </div>
+        <!-- <div class="col-10 col-lg-8 form-group text-center">
+          <label>
+            Email
+          </label>
+          <input type="email" formControlName="email" class="form-control" placeholder="Enter your email address">
+          <small *ngIf="contactInfoForm.controls.email.invalid && (contactInfoForm.controls.email.dirty || contactInfoForm.controls.email.touched)">*Required
+            field</small>
+        </div> -->
+        <div class="col-10 col-lg-8 form-group text-center">
+          <label>
+            Date of birth
+          </label>
+          <input type="email"
+            value="{{user?.dob   | amDateFormat:'YYYY/MM/DD'}}"
+            formControlName="dob"
+            class="form-control"
+            placeholder="Enter date of birth">
+          <div *ngIf="contactInfoForm.controls.dob.invalid && (contactInfoForm.controls.dob.dirty || contactInfoForm.controls.dob.touched)">
+            <small *ngIf="contactInfoForm.controls.dob.errors.required">
+              Required field
+            </small>
+            <small *ngIf="contactInfoForm.controls.dob.errors.pattern">
+              Invalid Date format (YYYY/MM/DD)
+            </small>
+          </div>
+        </div>
+        <div class=" col-10 col-lg-8 text-center form-group">
+          <label>
+            Phone
+          </label>
+          <input type="number"
+            formControlName="contact"
+            class="form-control"
+            placeholder="Enter your phone number">
+          <small *ngIf="contactInfoForm.controls.contact.invalid && (contactInfoForm.controls.contact.dirty || contactInfoForm.controls.contact.touched)">*Required
+            field</small>
+        </div>
+        <div class=" col-10 col-lg-8 text-center form-group">
+          <label>
+            Address
+          </label>
+          <input type="text"
+            formControlName="address"
+            class="form-control"
+            placeholder="Enter your address">
+          <small *ngIf="contactInfoForm.controls.address.invalid && (contactInfoForm.controls.address.dirty || contactInfoForm.controls.address.touched)">*Required
+            field</small>
+        </div>
+        <div class="col-10 col-lg-8 text-center form-group">
+          <label>
+            City
+          </label>
+          <input type="text"
+            formControlName="city"
+            class="form-control"
+            placeholder="Enter your city">
+          <small *ngIf="contactInfoForm.controls.city.invalid && (contactInfoForm.controls.city.dirty || contactInfoForm.controls.city.touched)">*Required
+            field</small>
+        </div>
+        <div class="col-10 col-lg-8 text-center form-group">
+          <label>
+            State
+          </label>
+          <input type="text"
+            formControlName="state"
+            class="form-control"
+            placeholder="Enter your state">
+          <small *ngIf="contactInfoForm.controls.state.invalid && (contactInfoForm.controls.state.dirty || contactInfoForm.controls.state.touched)">*Required
+            field</small>
+        </div>
+        <div class="col-10 col-lg-8 text-center  m-3">
+          <button class="btn btn-danger text-uppercase">Save</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>

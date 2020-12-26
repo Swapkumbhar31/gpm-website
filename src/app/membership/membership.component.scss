@@ -1,0 +1,118 @@
+#membership {
+  margin-top: 70px;
+  padding-bottom: 70px;
+  color: #ffffff;
+
+  .container {
+    h1 {
+      font-family: "GEOMA_REGULAR_DEMO" !important;
+    }
+  }
+
+  .card {
+    .core-card {
+      border-radius: 15px;
+      width: 100%;
+      background: #b60033;
+
+      h3 {
+        color: white;
+        font-family: 'GEOMA_REGULAR_DEMO';
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .cover {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+
+    .overlay {
+      background-color: #000000;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      opacity: 0.5;
+    }
+
+    img {
+      z-index: -1;
+      width: 100%;
+      height: 80%;
+    }
+
+    @media screen and (max-width: 600px) {
+      img {
+        width: auto;
+      }
+    }
+  }
+
+  .content {
+    z-index: 15;
+
+    .header {
+
+      h1,
+      p {
+        font-family: 'GEOMA_REGULAR_DEMO';
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+
+    .member-ship-card {
+      .card {
+        border-radius: 15px;
+        text-align: center;
+        color: #232323;
+
+        h1 {
+          span {
+            font-size: 20px;
+          }
+        }
+
+        .features {
+          margin: 20px auto;
+
+          .feature {
+            text-align: left;
+            display: block;
+            padding: 10px;
+            margin-left: 10px;
+            font-family: "GEOMA_REGULAR_DEMO";
+
+            .fa {
+              color: #000000;
+              margin: 5px 10px;
+              border: 1px solid #000000;
+              border-radius: 5px;
+            }
+
+            &.disabled {
+              color: #d7d7d7;
+
+              .fa {
+                color: #d7d7d7;
+                border: 1px solid #d7d7d7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    margin: 5% 4%;
+  }
+}
